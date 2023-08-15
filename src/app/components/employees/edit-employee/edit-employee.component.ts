@@ -1,3 +1,4 @@
+import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee.model';
@@ -48,6 +49,16 @@ export class EditEmployeeComponent implements OnInit {
       }
     })
 
+  }
+  deleteEmployee(id: string){
+    this.employeeService.deleteEmployee(id)
+    .subscribe({
+      next: (response)=>
+      {
+        this.router.navigate(['employees']);
+      }
+    })
+    
   }
 
 }
