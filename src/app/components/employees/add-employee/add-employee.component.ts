@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee.model';
 import { EmployeesService } from 'src/app/services/employees.service';
@@ -18,18 +19,15 @@ export class AddEmployeeComponent implements OnInit {
     department:''
 
   };
+  
   constructor(private employeeService: EmployeesService,private router: Router){}
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
   addEmployee(){
     this.employeeService.addEmployees(this.addEmployeeRequest)
-    .subscribe({
-      next:(employee) => {
-
+    .subscribe((employee) => {
         this.router.navigate(['employees']);
       }
-    });
+    );
   }
 
 }
