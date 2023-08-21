@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Employee } from '../models/employee.model';
+import { Login } from '../models/login.model';
 import { Signup } from '../models/signup.model';
 
 
@@ -17,9 +18,6 @@ export class EmployeesService {
 
   getAllEmployees() : Observable<Employee[]>{
     return this.http.get<Employee[]>(this.baseApiUrl + '/api/employees' );
-    
-  
-
   }
   addEmployees(addEmployeeRequest: Employee): Observable<Employee>{
     addEmployeeRequest.id='00000000-0000-0000-0000-000000000000';
@@ -37,7 +35,15 @@ export class EmployeesService {
   }
   addSignup(addSignupRequest:Signup):Observable<Signup>{
     addSignupRequest.id='00000000-0000-0000-0000-000000000000';
-   return this.http.post<Signup>(this.baseApiUrl + '/api/signup',addSignupRequest);
+   return this.http.post<Signup>(this.baseApiUrl + '/api/auth/register',addSignupRequest);
   }
+  addLogin(addLoginRequest:Login):Observable<Login>{
+    //addSignupRequest.id='00000000-0000-0000-0000-000000000000';
+   return this.http.post<Login>(this.baseApiUrl + '/api/auth/login', addLoginRequest);
+  }
+  
+  
+  
+  
   
 }
