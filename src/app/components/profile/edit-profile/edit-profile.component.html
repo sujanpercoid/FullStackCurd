@@ -1,0 +1,92 @@
+<app-common></app-common>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin: 20px;
+      color: #333;
+    }
+
+    form {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      max-width: 600px; /* Adjust the width as needed */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    input[readonly] {
+      background-color: #f5f5f5; /* Grey color for readonly fields */
+      color: #888; /* Adjust the color as needed */
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Edit {{ user_session }} Profile</h1>
+  <form #form="ngForm" (ngSubmit)="updateProfile()">
+    <label for="id">Id:</label>
+    <input type="text" id="username" name="id" [(ngModel)]="profile.id" readonly required>
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" [(ngModel)]="profile.username" readonly required>
+
+    <label for="fullname">Full Name:</label>
+    <input type="text" id="fullname" name="fullname" [(ngModel)]="profile.fullname" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="number" id="phone" name="phone" [(ngModel)]="profile.phone" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="profile.email" required>
+    <div>
+      <button type="submit" class="btn btn-primary">Update</button>
+      <button type="button" class="btn btn-danger" 
+                (click)="deleteProfile(profile.id)">Delete</button>
+    </div>
+    
+  </form>
+
+  <a [routerLink]="['/profile']">Back To Profile</a>
+</body>
+</html>
+
+
+
+

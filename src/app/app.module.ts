@@ -17,6 +17,9 @@ import { AddItemComponent } from './components/items/add-item/add-item.component
 
 import { ItemsListComponent } from './components/items/items-list/items-list.component';
 
+import { ProfileViewComponent } from './components/profile/profile-view/profile-view.component';
+import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component';
+
 
 
 
@@ -32,7 +35,10 @@ import { ItemsListComponent } from './components/items/items-list/items-list.com
     CommonComponent,
     AddItemComponent,
      
-    ItemsListComponent
+    ItemsListComponent,
+         
+          ProfileViewComponent,
+                    EditProfileComponent
     ],
   imports: [
     BrowserModule,

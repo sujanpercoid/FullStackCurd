@@ -41,6 +41,15 @@ export class EmployeesService {
     //addSignupRequest.id='00000000-0000-0000-0000-000000000000';
    return this.http.post<Login>(this.baseApiUrl + '/api/auth/login', addLoginRequest);
   }
+  getProfile(id : string):Observable<Signup>{
+    return this.http.get<Signup>(this.baseApiUrl + '/api/auth/'+id);
+  }
+  updateProfile(id: string, updateProfileRequest: Signup): Observable<Signup> {
+    return this.http.put<Signup>(this.baseApiUrl + '/api/auth/' + id, updateProfileRequest);
+  }
+  deleteProfile(id : string):Observable<Signup>{
+    return this.http.delete<Signup>(this.baseApiUrl + '/api/auth/'+id);
+  }
   
   
   

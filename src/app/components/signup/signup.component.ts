@@ -12,7 +12,11 @@ export class SignupComponent implements OnInit {
   addSignupRequest: Signup = {
     id: '',
     username: '',
-    password: ''
+    password: '',
+    fullname :'',
+    phone : 0,
+    email:''
+
   };
   
   confirmPassword: string = '';
@@ -26,11 +30,19 @@ export class SignupComponent implements OnInit {
       alert("Passwords do not match. Please confirm your password.");
       return;
     }
+    if (this.addSignupRequest.username == null ||this.addSignupRequest.username ==" ") {
+      alert("username xaina bhag.,");
+      return;
+    }
 
     this.employeeService.addSignup({
       id: this.addSignupRequest.id,
       username: this.addSignupRequest.username,
-      password: this.addSignupRequest.password
+      password: this.addSignupRequest.password,
+      fullname :this.addSignupRequest.fullname,
+      phone : this.addSignupRequest.phone,
+      email : this.addSignupRequest.email
+
     }).subscribe(
       (signup) => {
         console.log(signup);
@@ -38,7 +50,11 @@ export class SignupComponent implements OnInit {
         this.addSignupRequest = {
           id: '',
           username: '',
-          password: ''
+          password: '',
+          fullname :'',
+          phone : 0,
+          email:''
+
         };
         this.confirmPassword = '';
         alert("User Created Successfully");
@@ -55,7 +71,10 @@ export class SignupComponent implements OnInit {
         this.addSignupRequest = {
           id: '',
           username: '',
-          password: ''
+          password: '',
+          fullname :'',
+          phone : 0,
+           email:''
         };
         this.confirmPassword = '';
       }
