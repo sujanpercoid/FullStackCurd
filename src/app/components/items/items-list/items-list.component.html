@@ -1,2 +1,20 @@
 <app-common></app-common>
-<p>items-list works!</p>
+
+<div class="container my-5">
+  <h2 class="mb-3">Product List</h2>
+  <div class="product-list" *ngIf="products && products.length > 0">
+    <div class="product-item" *ngFor="let product of products">
+      <div class="product-details">
+        <h3 class="product-name">{{ product.productName }}</h3>
+        <p class="product-category">{{ product.category }}</p>
+        <p class="product-description">{{ product.description }}</p>
+        <p class="product-price">${{ product.price }}</p>
+        <a class="view-details" [routerLink]="['/items','view', product.productId]">View Details</a>
+        <button class="view-details" (click)="addCart(product.productId)">Cart</button>
+
+        
+      </div>
+    </div>
+  </div>
+  <p class="no-products" *ngIf="!products || products.length <= 0">No Product Found</p>
+</div>

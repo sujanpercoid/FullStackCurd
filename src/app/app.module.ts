@@ -19,6 +19,10 @@ import { ItemsListComponent } from './components/items/items-list/items-list.com
 
 import { ProfileViewComponent } from './components/profile/profile-view/profile-view.component';
 import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component';
+import { ProductDetailComponent } from './components/items/product-detail/product-detail.component';
+import { YourprodComponent } from './components/items/yourprod/yourprod.component';
+
+
 
 
 
@@ -38,13 +42,19 @@ import { EditProfileComponent } from './components/profile/edit-profile/edit-pro
     ItemsListComponent,
          
           ProfileViewComponent,
-                    EditProfileComponent
+                    EditProfileComponent,
+                    ProductDetailComponent,
+                    YourprodComponent
+                    
+                   
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

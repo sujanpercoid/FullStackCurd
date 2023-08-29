@@ -2,8 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { SendCart } from '../models/cart.model';
 import { Employee } from '../models/employee.model';
+import { Item } from '../models/item.model';
 import { Login } from '../models/login.model';
+import { Product } from '../models/product.model';
+import { Review } from '../models/review.model';
 import { Signup } from '../models/signup.model';
 
 
@@ -49,6 +53,32 @@ export class EmployeesService {
   }
   deleteProfile(id : string):Observable<Signup>{
     return this.http.delete<Signup>(this.baseApiUrl + '/api/auth/'+id);
+  }
+  addItem(addItemRequest: Item): Observable<Item>{
+    //addItemRequest.id='00000000-0000-0000-0000-000000000000';
+   return this.http.post<Item>(this.baseApiUrl + '/api/auth/UploadImage',addItemRequest);
+  }
+  addProdu(addProdcReq: Product):Observable<Product>{
+    return this.http.post<Product>(this.baseApiUrl + '/api/product',addProdcReq);
+  }
+  getAllProduct() : Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseApiUrl + '/api/product' );
+  }
+  getProduct(id : string):Observable<Product>{
+    return this.http.get<Product>(this.baseApiUrl + '/api/product/'+id);
+  }
+  getMyProd(id : number) : Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseApiUrl + '/api/product/myprod/'+id );
+  }
+  addReview(addReview : Review): Observable<Review>{
+    return this.http.post<Review>(this.baseApiUrl + '/api/product/review',addReview);
+  }
+  getReview(id : number): Observable<Review[]>{
+    return this.http.get<Review[]>(this.baseApiUrl +  '/api/product/review/'+id);
+  }
+  addToCart(cart: SendCart):Observable<SendCart>{
+    return this.http.post<SendCart>(this.baseApiUrl +  '/api/product/review/',cart);
+
   }
   
   

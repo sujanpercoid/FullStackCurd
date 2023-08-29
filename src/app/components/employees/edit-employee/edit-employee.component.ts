@@ -25,7 +25,9 @@ export class EditEmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe({
       next:(params) => {
+        console.log(params);
          const id = params.get('id');
+         console.log(id);
          if (id){
            this.employeeService.getEmployee(id)
            .subscribe({

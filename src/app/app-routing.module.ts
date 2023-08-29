@@ -6,6 +6,9 @@ import { EditEmployeeComponent } from './components/employees/edit-employee/edit
 import { EmployeesListComponent } from './components/employees/employees-list/employees-list.component';
 import { AddItemComponent } from './components/items/add-item/add-item.component';
 import { ItemsListComponent } from './components/items/items-list/items-list.component';
+import { ProductDetailComponent } from './components/items/product-detail/product-detail.component';
+import { YourprodComponent } from './components/items/yourprod/yourprod.component';
+
 import { LoginComponent } from './components/login/login.component';
 import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component';
 import { ProfileViewComponent } from './components/profile/profile-view/profile-view.component';
@@ -32,7 +35,7 @@ const routes: Routes = [
   
    {
      path:'signup',
-    component: SignupComponent 
+    component: SignupComponent,
    },
    {
      path:'items/add',
@@ -44,15 +47,24 @@ const routes: Routes = [
    },
    {
     path:'profile',
-   component: ProfileViewComponent 
+   component: ProfileViewComponent,canActivate:[authGuard]
    },
    {
      path:'profile/edit',
-     component:EditProfileComponent
+     component:EditProfileComponent,canActivate:[authGuard]
    },
+   { path: 'items/view/:id', 
+     component: ProductDetailComponent 
+    },
+    {
+      path:'items/yourprod',
+      component:YourprodComponent
+    },
+   
    { path: '**',
     redirectTo: '', component:LoginComponent
    },
+   
    
   
   

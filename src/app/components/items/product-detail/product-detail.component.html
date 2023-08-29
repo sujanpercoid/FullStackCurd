@@ -1,0 +1,37 @@
+<app-common></app-common>
+
+<div class="container my-5">
+  <div class="product-card card">
+    <div class="card-body">
+      <h2 class="card-title">Product Details</h2>
+      <p class="card-text"><strong>Product Name:</strong> {{ products.productName }}</p>
+      <p class="card-text"><strong>Category:</strong> {{ products.category }}</p>
+      <p class="card-text"><strong>Price:</strong> ${{ products.price }}</p>
+      <p class="card-text"><strong>Description:</strong> {{ products.description }}</p>
+    </div>
+  </div>
+
+  <div class="reviews mt-4">
+    <h2>Reviews</h2>
+    <div *ngFor="let review of reviews" class="review">
+      <h4 class="smaller-heading">Username: {{ review.username }}</h4>
+      <p class="review-text">{{ review.reviews }}</p>
+    </div>
+  </div>
+
+  <div class="comment-form mt-4">
+    <h2>Leave a Review</h2>
+    <form [formGroup]="review" (ngSubmit)="onPost()">
+      <label for="reviews">Review:</label><br>
+      <textarea id="reviews" name="reviews" rows="4" formControlName="reviews" cols="50" required></textarea><br><br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+  
+
+
+
+

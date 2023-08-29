@@ -29,11 +29,12 @@ export class LoginComponent implements OnInit {
               sessionStorage.setItem('token', response.token);
               sessionStorage.setItem('id', response.user.id);
               sessionStorage.setItem('username', response.user.username);
+              sessionStorage.setItem('contactid',response.user.contactId);
         
   
         
   
-        this.router.navigate(['employees']);
+        this.router.navigate(['items']);
       },
 
       // Error handling code...

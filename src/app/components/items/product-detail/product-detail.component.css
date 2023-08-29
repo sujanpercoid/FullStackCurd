@@ -1,0 +1,17 @@
+.product-card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.review {
+  margin-bottom: 15px;
+}
+
+.smaller-heading {
+  font-size: 1rem;
+}
+
+.review-text {
+  font-size: 0.9rem;
+}

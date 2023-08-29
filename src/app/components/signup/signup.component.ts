@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Signup } from 'src/app/models/signup.model';
 import { EmployeesService } from 'src/app/services/employees.service';
@@ -9,53 +10,46 @@ import { EmployeesService } from 'src/app/services/employees.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  addSignupRequest: Signup = {
-    id: '',
-    username: '',
-    password: '',
-    fullname :'',
-    phone : 0,
-    email:''
-
-  };
+  signup! :FormGroup;
   
   confirmPassword: string = '';
 
-  constructor(private employeeService: EmployeesService, private router: Router) {}
+  constructor(private employeeService: EmployeesService, private router: Router,private fb:FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.signup=this.fb.group({
+      fullname: new FormControl ('',Validators.required),
+      username: new FormControl('',[Validators.required,Validators.minLength(3)]),
+      phone: new FormControl('',Validators.required),
+      password:new FormControl('',Validators.required),
+      email:new FormControl ('',Validators.required)
+    })
+  }
 
   addSignup() {
-    if (this.addSignupRequest.password !== this.confirmPassword) {
-      alert("Passwords do not match. Please confirm your password.");
-      return;
-    }
-    if (this.addSignupRequest.username == null ||this.addSignupRequest.username ==" ") {
-      alert("username xaina bhag.,");
-      return;
-    }
+    const signupData: Signup = Object.assign(this.signup.value);
+    // if (this.signup.password !== this.confirmPassword) {
+    //   alert("Passwords do not match. Please confirm your password.");
+    //   return;
+    // }
+    // if (this.addSignupRequest.username == null ||this.addSignupRequest.username ==" ") {
+    //   alert("username xaina bhag.,");
+    //   return;
+    // }
 
-    this.employeeService.addSignup({
-      id: this.addSignupRequest.id,
-      username: this.addSignupRequest.username,
-      password: this.addSignupRequest.password,
-      fullname :this.addSignupRequest.fullname,
-      phone : this.addSignupRequest.phone,
-      email : this.addSignupRequest.email
-
-    }).subscribe(
+    this.employeeService.addSignup(signupData).subscribe(
       (signup) => {
         console.log(signup);
         // Clear the form fields
-        this.addSignupRequest = {
-          id: '',
-          username: '',
-          password: '',
-          fullname :'',
-          phone : 0,
-          email:''
+        // this.signup = {
+          
+        //   username: '',
+        //   password: '',
+        //   fullname :'',
+        //   phone : 0,
+        //   email:''
 
-        };
+        // };
         this.confirmPassword = '';
         alert("User Created Successfully");
         this.router.navigate(['login']);
@@ -67,16 +61,10 @@ export class SignupComponent implements OnInit {
         } else {
           // Handle other types of errors as needed
         }
-        // Clear the form fields even on error
-        this.addSignupRequest = {
-          id: '',
-          username: '',
-          password: '',
-          fullname :'',
-          phone : 0,
-           email:''
-        };
-        this.confirmPassword = '';
+        //clear form
+        this.signup.reset();
+        
+         this.confirmPassword = '';
       }
     );
   }
