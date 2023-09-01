@@ -3,10 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SendCart } from '../models/cart.model';
+import { CartChange } from '../models/cartchange.model';
 import { Employee } from '../models/employee.model';
 import { Item } from '../models/item.model';
 import { Login } from '../models/login.model';
 import { Product } from '../models/product.model';
+import { CartData } from '../models/returncart.model';
 import { Review } from '../models/review.model';
 import { Signup } from '../models/signup.model';
 
@@ -38,7 +40,7 @@ export class EmployeesService {
     return this.http.delete<Employee>(this.baseApiUrl + '/api/employees/'+id);
   }
   addSignup(addSignupRequest:Signup):Observable<Signup>{
-    addSignupRequest.id='00000000-0000-0000-0000-000000000000';
+    // addSignupRequest.id='00000000-0000-0000-0000-000000000000';
    return this.http.post<Signup>(this.baseApiUrl + '/api/auth/register',addSignupRequest);
   }
   addLogin(addLoginRequest:Login):Observable<Login>{
@@ -77,11 +79,22 @@ export class EmployeesService {
     return this.http.get<Review[]>(this.baseApiUrl +  '/api/product/review/'+id);
   }
   addToCart(cart: SendCart):Observable<SendCart>{
-    return this.http.post<SendCart>(this.baseApiUrl +  '/api/product/review/',cart);
+    return this.http.post<SendCart>(this.baseApiUrl +  '/api/product/cart',cart);
 
   }
-  
-  
+  getCart(id : any): Observable<CartData[]>{
+    return this.http.get<CartData[]>(this.baseApiUrl +  '/api/product/cart/'+id);
+  }
+  incCount(cart: SendCart):Observable<SendCart>{
+    return this.http.post<SendCart>(this.baseApiUrl +  '/api/product/inc',cart);
+  }
+  decCount(cart: SendCart):Observable<SendCart>{
+    return this.http.post<SendCart>(this.baseApiUrl +  '/api/product/dec',cart);
+  }
+  getSeller(id: any) {
+    return this.http.get(this.baseApiUrl + '/api/product/seller/' + id);
+}
+
   
   
   

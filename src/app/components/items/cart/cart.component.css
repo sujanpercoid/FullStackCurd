@@ -1,0 +1,41 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply general styling */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.cart-container {
+  margin: 20px;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-item td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.count-control {
+  display: flex;
+  align-items: center;
+}
+
+.count-control button {
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+tfoot td {
+  text-align: right;
+  padding-top: 10px;
+  font-weight: bold;
+}

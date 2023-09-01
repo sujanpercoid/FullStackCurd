@@ -3,18 +3,23 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { Review } from 'src/app/models/review.model';
+import { Sellerde } from 'src/app/models/seller.model';
 import { EmployeesService } from 'src/app/services/employees.service';
+
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  styleUrls: ['./product-detail.component.css'],
+  
 })
 export class ProductDetailComponent implements OnInit {
+  productId :any;
   review! : FormGroup;
   user_sessionid : any;
   id : any;
   reviews: Review[]=[];
+  sellerde: any; 
   products: Product={
     userId:'',
     productId:0,
@@ -87,7 +92,20 @@ export class ProductDetailComponent implements OnInit {
       )
     }
   }
+  sellerDetails(productId: number) {
+    this.productId = productId;
+    console.log(this.productId);
+    
+    this.employeeService.getSeller(this.productId).subscribe((data) => {
+      this.sellerde=data;
+      
+      console.log(this.sellerde); 
+      
+    });
+  }
+ 
   
   
+  sellerData: any[] = []; 
 
 }

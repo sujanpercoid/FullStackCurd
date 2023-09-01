@@ -21,6 +21,10 @@ import { ProfileViewComponent } from './components/profile/profile-view/profile-
 import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component';
 import { ProductDetailComponent } from './components/items/product-detail/product-detail.component';
 import { YourprodComponent } from './components/items/yourprod/yourprod.component';
+import { CartComponent } from './components/items/cart/cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
+import { SellerdeComponent } from './components/sellerde/sellerde.component';
 
 
 
@@ -44,7 +48,9 @@ import { YourprodComponent } from './components/items/yourprod/yourprod.componen
           ProfileViewComponent,
                     EditProfileComponent,
                     ProductDetailComponent,
-                    YourprodComponent
+                    YourprodComponent,
+                    CartComponent,
+                    
                     
                    
     ],
@@ -53,7 +59,9 @@ import { YourprodComponent } from './components/items/yourprod/yourprod.componen
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+     MatTabsModule
     
   ],
   providers: [],

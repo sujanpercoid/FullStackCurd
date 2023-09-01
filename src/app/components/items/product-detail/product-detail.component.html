@@ -2,13 +2,35 @@
 
 <div class="container my-5">
   <div class="product-card card">
-    <div class="card-body">
-      <h2 class="card-title">Product Details</h2>
-      <p class="card-text"><strong>Product Name:</strong> {{ products.productName }}</p>
-      <p class="card-text"><strong>Category:</strong> {{ products.category }}</p>
-      <p class="card-text"><strong>Price:</strong> ${{ products.price }}</p>
-      <p class="card-text"><strong>Description:</strong> {{ products.description }}</p>
-    </div>
+    <mat-tab-group animationDuration="0ms" (selectedTabChange)="sellerDetails(products.productId)">
+      <mat-tab  label="Product Details"><div class="card-body">
+        
+        <p class="card-text"><strong>Product Name:</strong> {{ products.productName }}</p>
+        <p class="card-text"><strong>Category:</strong> {{ products.category }}</p>
+        <p class="card-text"><strong>Price:</strong> ${{ products.price }}</p>
+        <p class="card-text"><strong>Description:</strong> {{ products.description }}</p>
+        
+      </div></mat-tab>
+      <mat-tab label="Seller details">
+        
+        <div *ngFor="let sellerData of sellerde"  >
+          <p class="card-text"><strong>UserName:</strong> {{ sellerData.username }}</p>
+        <p class="card-text"><strong>FullName:</strong> {{ sellerData.fullname }}</p>
+        <p class="card-text"><strong>Phone:</strong> {{ sellerData.phone }}</p>
+        <p class="card-text"><strong>Email:</strong> {{ sellerData.email }}</p>
+
+        <p *ngIf="sellerData.length == 0">Seller Not Found</p>
+        </div>
+        
+        
+        
+        
+        
+      </mat-tab>
+     
+      
+    </mat-tab-group>
+    
   </div>
 
   <div class="reviews mt-4">
@@ -28,6 +50,8 @@
     </form>
   </div>
 </div>
+
+
 
 
   

@@ -5,6 +5,7 @@ import { AddEmployeeComponent } from './components/employees/add-employee/add-em
 import { EditEmployeeComponent } from './components/employees/edit-employee/edit-employee.component';
 import { EmployeesListComponent } from './components/employees/employees-list/employees-list.component';
 import { AddItemComponent } from './components/items/add-item/add-item.component';
+import { CartComponent } from './components/items/cart/cart.component';
 import { ItemsListComponent } from './components/items/items-list/items-list.component';
 import { ProductDetailComponent } from './components/items/product-detail/product-detail.component';
 import { YourprodComponent } from './components/items/yourprod/yourprod.component';
@@ -59,6 +60,11 @@ const routes: Routes = [
     {
       path:'items/yourprod',
       component:YourprodComponent
+    },
+    {
+      path :'items/card/:id',
+      component: CartComponent
+
     },
    
    { path: '**',
