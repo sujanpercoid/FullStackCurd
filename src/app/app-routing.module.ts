@@ -6,8 +6,10 @@ import { EditEmployeeComponent } from './components/employees/edit-employee/edit
 import { EmployeesListComponent } from './components/employees/employees-list/employees-list.component';
 import { AddItemComponent } from './components/items/add-item/add-item.component';
 import { CartComponent } from './components/items/cart/cart.component';
+import { EditReviewComponent } from './components/items/edit-review/edit-review.component';
 import { ItemsListComponent } from './components/items/items-list/items-list.component';
 import { ProductDetailComponent } from './components/items/product-detail/product-detail.component';
+import { UrItemEditComponent } from './components/items/ur-item-edit/ur-item-edit.component';
 import { YourprodComponent } from './components/items/yourprod/yourprod.component';
 
 import { LoginComponent } from './components/login/login.component';
@@ -64,6 +66,15 @@ const routes: Routes = [
     {
       path :'items/card/:id',
       component: CartComponent
+
+    },
+    {
+      path:'items/uritem/:id',
+      component: UrItemEditComponent
+    },
+    {
+      path:'items/editcmt/:id',
+      component:EditReviewComponent
 
     },
    

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SendCart } from '../models/cart.model';
 import { CartChange } from '../models/cartchange.model';
+import { UritemEdit } from '../models/edituritem.model';
 import { Employee } from '../models/employee.model';
 import { Item } from '../models/item.model';
 import { Login } from '../models/login.model';
@@ -93,7 +94,16 @@ export class EmployeesService {
   }
   getSeller(id: any) {
     return this.http.get(this.baseApiUrl + '/api/product/seller/' + id);
-}
+  }
+  geturitem(id:string):Observable<UritemEdit> {
+    return this.http.get<UritemEdit> (this.baseApiUrl+ '/api/product/edit/'+id);
+  }
+  deleteItem(id : number){
+    return this.http.delete(this.baseApiUrl + '/api/product/delete/'+id);
+  }
+  updateItem(id: number, updateItem: UritemEdit): Observable<UritemEdit> {
+    return this.http.put<UritemEdit>(this.baseApiUrl + '/api/product/edit/' + id, updateItem);
+  }
 
   
   

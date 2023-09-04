@@ -7,6 +7,7 @@
       <th>Category</th>
       <th>Price</th>
       <th>Description</th>
+      <th>Edit</th>
       <th></th> <!-- Empty header for the Edit button column -->
     </tr>
   </thead>
@@ -16,7 +17,7 @@
       <td>{{ product.category }}</td>
       <td>{{ product.price }}</td>
       <td>{{ product.description }}</td>
-      <td><button class="edit-button" >Edit</button></td>
+      <td><a [routerLink]="['/items','uritem',product.productId]">Edit Profile</a></td>
     </tr>
   </tbody>
 </table>

@@ -38,6 +38,7 @@
     <div *ngFor="let review of reviews" class="review">
       <h4 class="smaller-heading">Username: {{ review.username }}</h4>
       <p class="review-text">{{ review.reviews }}</p>
+      <a *ngIf="review.username == this.user_sessionid" >Edit Cmt</a>
     </div>
   </div>
 

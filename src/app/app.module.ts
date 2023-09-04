@@ -25,6 +25,9 @@ import { CartComponent } from './components/items/cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import { SellerdeComponent } from './components/sellerde/sellerde.component';
+import { UrItemEditComponent } from './components/items/ur-item-edit/ur-item-edit.component';
+
+import { EditReviewComponent } from './components/items/edit-review/edit-review.component';
 
 
 
@@ -50,6 +53,9 @@ import { SellerdeComponent } from './components/sellerde/sellerde.component';
                     ProductDetailComponent,
                     YourprodComponent,
                     CartComponent,
+                    UrItemEditComponent,
+                    
+                    EditReviewComponent,
                     
                     
                    

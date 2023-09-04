@@ -1,0 +1,35 @@
+<body>
+    <h1>Edit Item</h1>
+    <form #form="ngForm" (ngSubmit)="updateProfile(uritems.productId)">
+      <label for="id">Product Name :</label>
+      <input type="text" id="productName" name="productName" [(ngModel)]="uritems.productName" >
+  
+      <label for="category">category:</label>
+      <select id="category" name="category" [(ngModel)]="uritems.category" required>
+        <option value="food">Food</option>
+        <option value="clothes">Clothes</option>
+        <option value="electronic">Electronic</option>
+        <option value="hardware">Hardware</option>
+        <option value="drinks">Drinks</option>
+        
+        
+      </select>
+      
+  
+      <label for="fullname">Price</label>
+      <input type="text" id="price" name="price" [(ngModel)]="uritems.price" required>
+  
+      <label for="phone">Description</label>
+      <input type="text" id="description" name="description" [(ngModel)]="uritems.description" required>
+  
+      
+      <div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-danger" 
+                  (click)="deleteItem(uritems.productId)">Delete</button>
+      </div>
+      
+    </form>
+  
+    <a [routerLink]="['/items/yourprod']">Back To My Items</a>
+  </body>
