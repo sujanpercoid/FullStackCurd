@@ -10,7 +10,7 @@
 <body>
   
   <div class="cart-container">
-    <table class="cart-table" *ngIf="!noItemInCart">
+    <table class="cart-table" *ngIf="grandTotal !='0' ">
       <thead>
         <tr>
           <th>Product Name</th>
@@ -39,7 +39,7 @@
         </tr>
       </tfoot>
     </table>
-    <p *ngIf="noItemInCart">No Item In Cart</p>
+    <p *ngIf="grandTotal == '0'">No Item In Cart</p>
   </div>
 </body>
 </html>

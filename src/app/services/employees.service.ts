@@ -6,6 +6,7 @@ import { SendCart } from '../models/cart.model';
 import { CartChange } from '../models/cartchange.model';
 import { UritemEdit } from '../models/edituritem.model';
 import { Employee } from '../models/employee.model';
+import { eReview } from '../models/ereview.model';
 import { Item } from '../models/item.model';
 import { Login } from '../models/login.model';
 import { Product } from '../models/product.model';
@@ -103,6 +104,9 @@ export class EmployeesService {
   }
   updateItem(id: number, updateItem: UritemEdit): Observable<UritemEdit> {
     return this.http.put<UritemEdit>(this.baseApiUrl + '/api/product/edit/' + id, updateItem);
+  }
+  getEditReview(id: number):Observable<Review>{
+    return this.http.get<Review>(this.baseApiUrl +'/api/product/reviewedit/' + id,)
   }
 
   

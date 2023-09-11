@@ -21,7 +21,7 @@
 
         <p *ngIf="sellerData.length == 0">Seller Not Found</p>
         </div>
-        
+          
         
         
         
@@ -38,8 +38,8 @@
     <div *ngFor="let review of reviews" class="review">
       <h4 class="smaller-heading">Username: {{ review.username }}</h4>
       <p class="review-text">{{ review.reviews }}</p>
-      <a *ngIf="review.username == this.user_sessionid" >Edit Cmt</a>
-    </div>
+      <a *ngIf="review.username == this.user_sessionid" [routerLink]="['/items','editcmt', review.reviewId]"  >Edit Cmt </a>
+    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
   </div>
 
   <div class="comment-form mt-4">
@@ -47,7 +47,7 @@
     <form [formGroup]="review" (ngSubmit)="onPost()">
       <label for="reviews">Review:</label><br>
       <textarea id="reviews" name="reviews" rows="4" formControlName="reviews" cols="50" required></textarea><br><br>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" >Submit</button>
     </form>
   </div>
 </div>
