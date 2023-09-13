@@ -2,13 +2,15 @@
 
 <div class="container my-5">
   <div class="product-card card">
-    <mat-tab-group animationDuration="0ms" (selectedTabChange)="sellerDetails(products.productId)">
+    <mat-tab-group animationDuration="0ms" (selectedTabChange)="sellerDetails();">
       <mat-tab  label="Product Details"><div class="card-body">
         
-        <p class="card-text"><strong>Product Name:</strong> {{ products.productName }}</p>
-        <p class="card-text"><strong>Category:</strong> {{ products.category }}</p>
-        <p class="card-text"><strong>Price:</strong> ${{ products.price }}</p>
-        <p class="card-text"><strong>Description:</strong> {{ products.description }}</p>
+       <div  *ngFor="let product of pro">
+        <p class="card-text"><strong>Product Name:</strong> {{ product.productName }}</p>
+        <p class="card-text"><strong>Category:</strong> {{ product.category }}</p>
+        <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+        <p class="card-text"><strong>Description:</strong> {{ product.description }}</p>
+       </div>
         
       </div></mat-tab>
       <mat-tab label="Seller details">

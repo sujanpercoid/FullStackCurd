@@ -24,14 +24,18 @@ export class LoginComponent implements OnInit {
       password: this.addLoginRequest.password
     }).subscribe(
       (response: any) => {  // Use "response" instead of "login"
+         if (response.message != null)
+         {
+           alert(response.message);
+         }
+  
         console.log(response);
         // Save the token to local storage
               sessionStorage.setItem('token', response.token);
               sessionStorage.setItem('id', response.user.id);
               sessionStorage.setItem('username', response.user.username);
               sessionStorage.setItem('contactid',response.user.contactId);
-        
-  
+             
         
   
         this.router.navigate(['items']);

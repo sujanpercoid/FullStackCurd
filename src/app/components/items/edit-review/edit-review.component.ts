@@ -39,7 +39,7 @@ export class EditReviewComponent implements OnInit{
       },
     });
   }
-  
+       
   updateProfile(){}
   deleteProfile(id: number){}
 

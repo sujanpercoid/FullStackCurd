@@ -28,7 +28,7 @@ export class ProductDetailComponent implements OnInit {
     price:0,
     category:''
   };
-  
+  pro:any;
   constructor(private route : ActivatedRoute,private employeeService: EmployeesService,private router: Router,private fb : FormBuilder){}
 
   ngOnInit(): void {
@@ -53,7 +53,8 @@ export class ProductDetailComponent implements OnInit {
                console.log(response);
                console.log(this.id);
                
-               this.products = response;
+               this.pro = response;
+               console.log("product",this.products);
 
              }
            })
@@ -92,14 +93,11 @@ export class ProductDetailComponent implements OnInit {
       )
     }
   }
-  sellerDetails(productId: number) {
-    this.productId = productId;
-    console.log(this.productId);
-    
-    this.employeeService.getSeller(this.productId).subscribe((data) => {
+  sellerDetails() {
+    this.employeeService.getSeller(this.pro[0].productId).subscribe((data) => {
       this.sellerde=data;
       
-      console.log(this.sellerde); 
+      console.log("seller",this.sellerde); 
       
     });
   }
