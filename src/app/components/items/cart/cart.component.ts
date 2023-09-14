@@ -42,9 +42,10 @@ export class CartComponent implements OnInit {
                if (this.cart.message == "No item in cart"){
                 this.noItemInCart=true;
                }
-               this.productInfo = this.cart.productInfo; 
+               this.productInfo = response; 
                this.grandTotal = this.cart.grandTotal
                console.log("cart",this.cart);
+             
 
               }
               
